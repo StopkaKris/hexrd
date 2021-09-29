@@ -3099,6 +3099,52 @@ class PlanarDetector(object):
                               grain_params=None,
                               beam_vec=None):
         """
+        Simulates a Laue diffraction pattern on the detector.
+
+        Parameters
+        ----------
+        crystal_data : hexrd.crystallography.PlaneData or array_like
+            Specifies the crystallographic information.  If array_like input,
+            must have length 2; the first element is a (n, 3) array of (hkl)
+            and the second is the crystal 'B' matrix
+        minEnergy : scalar or array_like, optional
+            The minimum energy cutoff in keV; can be a list if multiple ranges.
+            The default is 5..
+        maxEnergy : TYPE, optional
+            The minimum energy cutoff in keV; can be a list if multiple ranges.
+            If a list, it must have the same length as minEnergy.
+            The default is 35.
+        rmat_s : array_like, optional
+            The (3, 3) COB matrix for the sample frame. The default is None,
+            which is equivalent to the identity matrix.
+        tvec_s : array_like, optional
+            The (3, ) translation vector to the sample frame.
+            The default is None.
+        grain_params : array_like, optional
+            The (m, 12) array of parameters for m grains. The 12 parameters for
+            each grain are as follows:
+                0:3  -- exponential map
+                3:6  -- COM vector in sample frame
+                6:12 -- inverse stretch tensor components
+            The default is None, which is equivalent to
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0].
+        beam_vec : array_lke, optional
+            The (3, ) beam propagation direction. The default is None, which
+            is equaivalent to [ 0.,  0., -1.]
+
+        Returns
+        -------
+        xy_det : TYPE
+            DESCRIPTION.
+        hkls_in : TYPE
+            DESCRIPTION.
+        angles : TYPE
+            DESCRIPTION.
+        dspacing : TYPE
+            DESCRIPTION.
+        energy : TYPE
+            DESCRIPTION.
+
         """
         if isinstance(crystal_data, PlaneData):
 
