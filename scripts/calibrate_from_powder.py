@@ -5,6 +5,9 @@ Created on Thu Sep 14 12:04:31 2017
 
 @author: bernier2
 """
+
+# Another comment
+
 import os
 
 import glob
